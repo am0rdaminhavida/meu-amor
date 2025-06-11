@@ -1,0 +1,363 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #ffcccc, #ff99cc); /* Fundo gradiente romântico */
+    overflow-x: hidden; /* Evita rolagem horizontal */
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95); /* Mais opaco */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 95%; /* Mais adaptável a telas menores */
+    width: 400px;
+    position: relative;
+    z-index: 10;
+    margin: 20px auto; /* Margem para telas pequenas */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+    h1 {
+        font-size: 2em !important;
+    }
+    .intro-text, .signature, p {
+        font-size: 1em !important;
+    }
+    input[type="password"], button {
+        font-size: 1em !important;
+        padding: 12px !important;
+    }
+    .counter-display {
+        font-size: 1.2em !important;
+    }
+    .love-counter-section h2, .video-placeholder h2, .first-kiss-section h2 {
+        font-size: 1.5em !important;
+    }
+}
+
+h1 {
+    color: #e91e63; /* Rosa vibrante */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+p {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+input[type="password"] {
+    width: calc(100% - 40px);
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ff6699; /* Borda rosa */
+    border-radius: 8px;
+    font-size: 1.2em;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="password"]:focus {
+    border-color: #e91e63;
+}
+
+button {
+    background-color: #ff6699; /* Rosa */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #e91e63; /* Rosa mais escuro */
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: #d32f2f; /* Vermelho de erro */
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Animação de corações */
+.heart-animation-container {
+    position: fixed; /* Corações fixos na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1; /* Abaixo do conteúdo */
+}
+
+.heart {
+    position: absolute;
+    background-color: #ff6699;
+    transform: rotate(-45deg);
+    animation: floatHeart 10s infinite ease-in;
+    opacity: 0;
+}
+
+.heart:before, .heart:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff6699;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -50%;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: 50%;
+}
+
+/* Tamanhos e posições aleatórias para os corações */
+.heart:nth-child(1) {
+    width: 20px; height: 20px;
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+.heart:nth-child(2) {
+    width: 30px; height: 30px;
+    left: 30%;
+    animation-duration: 10s;
+    animation-delay: 2s;
+}
+.heart:nth-child(3) {
+    width: 25px; height: 25px;
+    left: 50%;
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+.heart:nth-child(4) {
+    width: 35px; height: 35px;
+    left: 70%;
+    animation-duration: 11s;
+    animation-delay: 6s;
+}
+.heart:nth-child(5) {
+    width: 28px; height: 28px;
+    left: 90%;
+    animation-duration: 7s;
+    animation-delay: 8s;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* Estilos para main.html */
+.main-page .content-box {
+    padding: 30px;
+}
+
+.main-page h1 {
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    color: #e91e63;
+}
+
+.intro-text, .signature, .main-page p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.signature {
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #e91e63;
+}
+
+.image-placeholder {
+    margin: 25px auto;
+    width: 100%;
+    max-width: 350px; /* Tamanho máximo para as fotos */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.love-counter-section {
+    background-color: #fff0f5; /* Rosa bem claro */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.love-counter-section h2 {
+    color: #e91e63;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.love-counter-section p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.counter-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff6699;
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.video-placeholder {
+    background-color: #f8f8f8;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.video-placeholder h2 {
+    color: #e91e63;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.video-placeholder p {
+    color: #777;
+    font-style: italic;
+}
+
+.first-kiss-section {
+    background-color: #fff0f5;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 30px 0;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.first-kiss-section h2 {
+    color: #e91e63;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.first-kiss-section p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.kiss-option {
+    background-color: #ff6699;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.kiss-option:hover {
+    background-color: #e91e63;
+    transform: translateY(-2px);
+}
+
+.kiss-option.correct {
+    background-color: #4CAF50; /* Verde para correto */
+}
+
+.kiss-option.incorrect {
+    background-color: #f44336; /* Vermelho para incorreto */
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.message.correct-answer {
+    color: #4CAF50;
+}
+
+.message.incorrect-answer {
+    color: #f44336;
+}
+
+/* Estilos para corações flutuantes no conteúdo */
+.text-with-hearts {
+    position: relative;
+    display: inline-block; /* Para que o span envolva o texto */
+}
+
+.text-with-hearts::before {
+    content: '❤️'; /* Coração */
+    position: absolute;
+    font-size: 0.8em;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Ajustes para corações específicos no texto */
+p:nth-of-type(2) .text-with-hearts::before {
+    top: -5px; right: -15px;
+}
+
+p:nth-of-type(4) .text-with-hearts::before {
+    bottom: -5px; left: -10px;
+}
+
+
+
